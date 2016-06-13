@@ -35,8 +35,9 @@ public class JobTest {
         mainPage.navigateToMenu(menuName);
         jobsPage.typeToSearchField(query);
         jobsPage.clickFindButton();
+        jobsPage.waitForSearchResults();
 
-        Assert.assertTrue(jobsPage.getResultHeadersList().size() > 0, "There are not results matching query");
+        Assert.assertTrue(jobsPage.getResultHeadersList(query).size() > 0, "There are not results matching query");
     }
 
     @AfterClass
